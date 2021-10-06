@@ -1,10 +1,12 @@
 import requests
+import os
+import pandas as pd
+import numpy as np
 
 # Question 1):
 def items_df():
     url = 'https://python.zgulde.net'
     response = requests.get(url + '/api/v1/items')
-
     filename = 'items.csv'
     if os.path.isfile(filename):
         items = pd.read_csv(filename, index_col=[0])
@@ -105,8 +107,8 @@ def germany_df():
 
     filename = 'opsd_germany.csv'
     if os.path.isfile(filename):
-        opsd = pd.read_csv(filename, index_col=[0])
+        opsd = pd.read_csv(filename)
     else:
-        opsd = pd.read_csv(url, index_col=[0])
+        opsd = pd.read_csv(url)
     return opsd
 
