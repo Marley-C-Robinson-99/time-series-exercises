@@ -2,6 +2,10 @@ import requests
 import os
 import pandas as pd
 import numpy as np
+from env import host, user, password
+
+def get_db_url(host = host, user = user, password = password, db = 'zillow'):
+    return f'mysql+pymysql://{user}:{password}@{host}/{db}'
 
 # Question 1):
 def items_df():
